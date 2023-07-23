@@ -1,4 +1,5 @@
 # Environment
+__pycache__
 venv
 
 # Private info 
