@@ -28,5 +28,15 @@ def home(request):
 # def login_user(request): # name cannot be login because will conflict with login func
 #     pass
 
-def logout_user(request):
-    pass
+
+def logout_user(request): 
+    logout(request)
+    messages.success(request, "You have been Logged Out ...")
+    return redirect('home')
+
+
+def register_user(request):
+    return render(request, 'register.html', {})
+
+
+
