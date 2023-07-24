@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name = "home"),  # create home page
     # path('login/', views.login_user, name = "login"),  # create login page
     path('logout/', views.logout_user, name = "logout"),  # create logout page
-    path('register/', views.register_user, name = 'register')
+    path('register/', views.register_user, name = 'register'), 
+    path('record/<int:pk>', views.customer_record, name = 'record')
 ]
