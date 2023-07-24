@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout # for login system
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Record
 
 # Create your views here.
 
 def home(request):
+    records = Record.objects.all()
+
     # Check to see if user login or not
     if request.method == 'POST':
         username = request.POST['user_name']
@@ -22,7 +25,7 @@ def home(request):
             messages.success(request, "There was an error login, Please try again !!")
             return redirect('home')
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'home.html', {'records': records})
 
 # want to put this with home (login then show content, unlogin then show login page)
 # def login_user(request): # name cannot be login because will conflict with login func
